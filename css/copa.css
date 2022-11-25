@@ -1,0 +1,118 @@
+:root {
+	--largura-campo: 120px;
+	--altura-campo: 90px;
+	--escala: 3;
+	--espessura-linhas: 3px;
+}
+
+body {
+	display: grid;
+	background-color: #0048;
+	place-items: center;
+	height: 100vh;
+}
+
+.campo {
+	display: flex;
+	align-items: center;
+	position: relative;
+	background-color: green;
+	width: calc(var(--largura-campo) * var(--escala));
+	height: calc(var(--altura-campo) * var(--escala));
+	border: solid var(--espessura-linhas) white;
+}
+
+.sides-separator {
+	position: relative;
+	left: 50%;
+	height: calc(var(--altura-campo) * var(--escala));
+	width: var(--espessura-linhas);
+	background-color: white;
+}
+
+.sides-separator::before {
+	position: absolute;
+	content: '';
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.sides-separator::after {
+	position: absolute;
+	content: '';
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50px;
+	height: 50px;
+	border: solid var(--espessura-linhas) white;
+	border-radius: 50%;
+	background-color: transparent;
+}
+
+.gd {
+	width: 70px;
+	height: 120px;
+}
+
+.sm {
+	width: 30px;
+	height: 70px;
+}
+
+.sm.area::before {
+	content: '';
+	position: absolute;
+	background-color: white;
+	border-radius: 50%;
+	width: 4px;
+	height: 4px;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.sm.area.right::before {
+	
+	right: 180%;
+}
+
+.sm.area.left::before {
+	left: 180%;
+}
+
+.area {
+	position: absolute;
+
+	border: solid var(--espessura-linhas) white;
+}
+
+.area.left {
+	border-left: none;
+}
+
+.area.right {
+	border-right: none;
+	position: absolute;
+	right: 0;
+}
+
+.gol {
+	width: 10px;
+	height: 50px;
+	
+}
+
+.gol.right {
+	left: calc(-10px - var(--espessura-linhas));
+	transform: skewY(15deg);
+}
+
+.gol.left {
+	right: calc(-10px - var(--espessura-linhas));
+	transform: skewY(-15deg);
+}
