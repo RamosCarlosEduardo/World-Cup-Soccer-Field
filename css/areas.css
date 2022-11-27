@@ -1,0 +1,68 @@
+.area {
+	transform: rotateX(90deg);
+	position: absolute;
+	
+}
+.gd {
+	width: 30px;
+	height: 50px;
+}
+
+.sm {
+	width: 15px;
+	height: 30px;
+}
+
+
+.area.left {
+	left: 0;
+	border: solid var(--espessura-linhas) white;
+	border-left: none;
+}
+
+.area.right {
+	right: 1px;
+	border: solid var(--espessura-linhas) white;
+	border-right: none;
+}
+
+/* marcas do penalti */
+.sm.area::before {
+	content: '';
+	position: absolute;
+	background-color: white;
+	border-radius: 50%;
+	width: 2px;
+	height: 2px;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.sm.area.right::before {
+	right: calc(180% - 5px);
+}
+
+.sm.area.left::before {
+	left: calc(180%);
+} 
+
+/* meia luas */
+
+.gd.area::before {
+	content: '';
+	position: absolute;
+	background: transparent;
+	height: 20px;
+	width: 20px;
+	border-top: 1px white solid;
+	border-left: 1px white solid;
+	border-top-left-radius: 90%;
+}
+
+.gd.area.left::before {
+
+	transform: rotateZ(135deg) translate(-3px, -25px);
+}
+
+.gd.area.right::before {
+	transform: rotateZ(-45deg) translate(-19px, 2px);
+}

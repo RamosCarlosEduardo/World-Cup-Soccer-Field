@@ -1,0 +1,55 @@
+.corner {
+    top: 44%;
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border: solid var(--espessura-linhas) white;
+
+}
+
+.corner::before {
+    display: block;
+    content: '';
+    background: url(../img/corner-flag.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 10px;
+    transform: rotateX(90deg);
+}
+
+.corner.right.up {
+    border-bottom-left-radius: 90%;
+    transform: rotateX(90deg) translateX(110px) translateY(-40px);
+}
+.corner.right.down {
+    border-top-left-radius: 90%;
+    transform: rotateX(90deg) translateX(110px) translateY(40px);
+}
+.corner.left.up {
+    border-bottom-right-radius: 90%;
+    transform: rotateX(90deg) translateX(0px) translateY(-40px);
+}
+.corner.left.down {
+    border-top-right-radius: 90%;
+    transform: rotateX(90deg) translateX(0px) translateY(40px);
+}
+/* 
+.corner.right.up::before {
+    transform:  rotateZ(45deg) translate(-10px, -15px);
+}
+
+
+.corner.right.down::before {
+    transform: rotateZ(135deg) translate(2px, -5px);
+}
+
+
+.corner.left.up::before {
+    transform: rotateZ(305deg) translate(5px, -28px);
+}
+
+
+.corner.left.down::before {
+    transform: rotateZ(215deg) translate(15px, -15px);
+} */

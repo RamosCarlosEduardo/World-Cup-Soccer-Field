@@ -1,0 +1,75 @@
+@import url(gol.css);
+@import url(areas.css);
+@import url(meio-de-campo.css);
+@import url(corners.css);
+@import url(banner.css);
+
+:root {
+	--largura-campo: 120px;
+	--altura-campo: 90px;
+	--escala: 1;
+	--espessura-linhas: 1px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Kalam', cursive;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+	perspective: 10em;
+	perspective-origin: 50% 30%;
+}
+
+.scene {
+	position: relative;
+	height: calc(var(--altura-campo) * var(--escala));
+	width: calc(var(--largura-campo) * var(--escala));
+	display: flex;
+	align-items: center;
+	transform-style: preserve-3d;
+	animation: campoRotate 10s infinite linear;
+	z-index: 1;
+}
+
+.hologram {
+	position: absolute;
+	width: 100px;
+	height: 200px;
+	z-index: 0;
+	bottom: 13rem;
+	background-image: url(../img/vecteezy_hologram.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.hologram::before {
+	content: '';
+	position: absolute;
+	background-color: #00ffff99;
+	filter: blur(1em);
+	height: 180px;
+	width: 100px;
+	bottom: -30px;
+	transform: perspective(5rem) rotateX(-45deg);
+}
+
+.grass {
+	position: absolute;
+	border: solid var(--espessura-linhas) white;
+	height: calc(var(--altura-campo) * var(--escala));
+	width: calc(var(--largura-campo) * var(--escala));
+	background: repeating-linear-gradient(to right, #2EAB1D 0% 5%, #40B21C 5% 10%);	
+	transform: rotateX(90deg);
+}
+
+@keyframes campoRotate {
+	to {transform: rotateY(360deg)}
+}
