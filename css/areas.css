@@ -46,7 +46,6 @@
 } 
 
 /* meia luas */
-
 .gd.area::before {
 	content: '';
 	position: absolute;
